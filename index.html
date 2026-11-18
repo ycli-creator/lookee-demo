@@ -4,11 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>主题聊</title>
-  <link rel="stylesheet" href="style.css?v=picker-default-3">
+  <link rel="stylesheet" href="style.css?v=demo-states-1">
   <link rel="stylesheet" href="button.css">
-  <script src="app.js" defer></script>
+  <script src="app.js?v=demo-states-1" defer></script>
 </head>
 <body>
+<nav class="demo-states" aria-label="演示状态">
+  <a href="?" data-demo-state="normal">常规</a>
+  <a href="?state=empty" data-demo-state="empty">空状态</a>
+  <a href="?state=error" data-demo-state="error">加载失败</a>
+  <a href="?state=skeleton" data-demo-state="skeleton">骨架屏</a>
+</nav>
 <main class="phone" aria-labelledby="title">
   <div class="sticky-header">
     <img class="decoration" src="assets/9465f.svg" alt="">
@@ -37,6 +43,24 @@
     <p>加载失败，可以刷新重试喔~</p>
     <button class="app-button app-button--strong" id="retry">重新加载<img src="assets/50292.svg" alt=""></button>
   </section>
+  <div class="skeleton-screen" id="skeleton-screen" role="status" aria-label="正在加载主题聊" hidden>
+    <div class="skeleton skeleton-search"></div>
+    <div class="skeleton-card">
+      <div class="skeleton-summary">
+        <div class="skeleton skeleton-cover"></div>
+        <div class="skeleton-copy">
+          <div class="skeleton skeleton-heading"></div>
+          <div class="skeleton skeleton-line"></div>
+          <div class="skeleton skeleton-line"></div>
+        </div>
+      </div>
+      <div class="skeleton skeleton-action"></div>
+    </div>
+    <div class="skeleton-library">
+      <div class="skeleton skeleton-tabs"></div>
+      <div class="grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    </div>
+  </div>
   <div class="hero">
     <button class="app-button app-button--structural search search-trigger" id="search-trigger" aria-haspopup="dialog" aria-controls="search-screen"><img src="assets/2f26f.svg" alt=""><span>搜索绘本、故事、思维导图等</span></button>
     <section class="configuration" aria-label="当前主题聊配置">

@@ -228,3 +228,29 @@ dialog.search-screen { position: fixed; inset: 0; margin: auto; width: min(100%,
 }
 .home-indicator { position: fixed; bottom: calc(max(0px, (100dvh - 844px)/2) + 8px); }
 .search-screen::after, .preview::after, .picker::after { content: ""; position: absolute; bottom: 8px; }
+.demo-states { position: fixed; top: max(20px, (100dvh - 844px)/2 + 20px); left: calc(50% + 215px); display: grid; gap: 8px; z-index: 6; }
+.demo-states a { padding: 8px 16px; border-radius: 999px; color: white; background: #5d5d5d; text-align: center; text-decoration: none; white-space: nowrap; font-size: 13px; }
+.demo-states a[aria-current="page"] { background: #ffce31; color: #191919; }
+@media (max-width: 700px) {
+  .demo-states { position: relative; inset: auto; display: flex; justify-content: center; flex-wrap: wrap; padding: 6px; gap: 4px; }
+  .demo-states a { padding: 6px 12px; }
+  .phone { margin-block: 0; height: calc(100dvh - 40px); }
+}
+.phone.is-skeleton .collapse-space { display: none; }
+.skeleton-screen { padding: 18px 10px 30px; }
+.skeleton { background: #eee8dd; border-radius: 8px; position: relative; overflow: hidden; }
+.skeleton::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, #fff9 50%, transparent 80%); transform: translateX(-100%); animation: skeleton-sweep 1.65s ease-in-out infinite; }
+@keyframes skeleton-sweep { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .skeleton::after { animation: none; } }
+.skeleton-search { height: 40px; margin: 0 12px 48px; border-radius: 999px; }
+.skeleton-card, .skeleton-library { padding: 16px 20px 20px; border-radius: 30px; background: #fffefb; }
+.skeleton-summary { display: flex; gap: 12px; }
+.skeleton-cover { flex: 0 0 33.33%; height: 144px; border-radius: 18px; }
+.skeleton-copy { flex: 1; display: grid; align-content: center; gap: 12px; }
+.skeleton-heading { width: 62%; height: 20px; }
+.skeleton-line { height: 12px; }
+.skeleton-line:last-child { width: 85%; }
+.skeleton-action { height: 46px; margin-top: 16px; border-radius: 999px; }
+.skeleton-library { margin-top: 12px; padding-inline: 12px; }
+.skeleton-tabs { width: 66%; height: 20px; margin: 5px auto 24px; }
+.skeleton-library .grid > div { aspect-ratio: 110 / 144; }

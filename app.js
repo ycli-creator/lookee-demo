@@ -29,6 +29,7 @@ const picker = byId('picker');
 const selected = new Set();
 const attachments = new Map();
 const initialState = new URLSearchParams(location.search).get('state');
+const isSkeleton = initialState === 'skeleton';
 if (initialState === 'empty') resources.length = 0;
 const grid = byId('grid');
 const dialog = byId('dialog');
@@ -102,14 +103,14 @@ function syncScrollState() {
   const viewportBottom = phone.getBoundingClientRect().bottom;
   const available = Math.max(0, Math.round(viewportBottom - libraryToolbar.getBoundingClientRect().bottom));
   const progress = (edge, distance) => Math.max(0, Math.min(1, (edge + distance) / distance));
-  const searchProgress = loadFailed ? 1 : progress(cutoff - searchBottom, 20);
+  const searchProgress = isSkeleton ? 0 : loadFailed ? 1 : progress(cutoff - searchBottom, 20);
   const dockProgress = loadFailed || !current
     ? 0
     : Math.max(0, Math.min(1, (cutoff - configBottom) / 24));
   phone.classList.toggle('is-scrolled', phone.scrollTop > 0);
   const visibleHeight = `${available}px`;
   if (resourceScroll.style.maxHeight !== visibleHeight) resourceScroll.style.maxHeight = visibleHeight;
-  searchToggle.inert = !loadFailed && searchBottom > cutoff;
+  searchToggle.inert = isSkeleton || (!loadFailed && searchBottom > cutoff);
   searchBar.inert = loadFailed || searchBottom <= cutoff;
   compactConfig.inert = dockProgress < 1;
   fullConfig.inert = configBottom <= cutoff;
@@ -206,8 +207,15 @@ function render() {
   phone.classList.toggle('is-empty', !current);
   phone.classList.toggle('load-failed', loadFailed);
   byId('load-error').hidden = !loadFailed;
-  document.querySelector('.hero').hidden = loadFailed;
-  document.querySelector('.library').hidden = loadFailed;
+  document.querySelector('.hero').hidden = loadFailed || isSkeleton;
+  document.querySelector('.library').hidden = loadFailed || isSkeleton;
+  byId('skeleton-screen').hidden = !isSkeleton;
+  phone.classList.toggle('is-skeleton', isSkeleton);
+  const activeDemo = loadFailed ? 'error' : isSkeleton ? 'skeleton' : initialState === 'empty' ? 'empty' : 'normal';
+  for (const link of document.querySelectorAll('[data-demo-state]')) {
+    if (link.dataset.demoState === activeDemo) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  }
 }
 
 function renderTile(item, picking = false) {
