@@ -104,7 +104,7 @@ function syncScrollState() {
   const available = Math.max(0, Math.round(viewportBottom - libraryToolbar.getBoundingClientRect().bottom));
   const progress = (edge, distance) => Math.max(0, Math.min(1, (edge + distance) / distance));
   const searchProgress = isSkeleton ? 0 : loadFailed ? 1 : progress(cutoff - searchBottom, 20);
-  const dockProgress = loadFailed || !current
+  const dockProgress = isSkeleton || loadFailed || !current
     ? 0
     : Math.max(0, Math.min(1, (cutoff - configBottom) / 24));
   phone.classList.toggle('is-scrolled', phone.scrollTop > 0);
