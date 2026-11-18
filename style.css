@@ -43,7 +43,7 @@ img { display: block; }
 .tags span { font: 11px/1.45 Rubik, sans-serif; white-space: nowrap; color: white; background: linear-gradient(115deg,#ee9547,#f5780a); padding: 2px 6px; border-radius: 4px; }
 .prompts { display: grid; gap: 4px; margin-top: 12px; color: var(--gray); font-size: 13px; line-height: 1.4; letter-spacing: .26px; }
 .prompts p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.config-card #add { margin-top: 20px; }
+.config-card #add { margin-top: 16px; }
 .config-card .resource-link { --button-padding: 6px; margin: 4px auto 0; color: #026dcb; opacity: .6; text-decoration: underline; font-size: 11px; line-height: 11px; }
 .compact-dock { position: sticky; top: var(--header-height); z-index: 3; height: 0; pointer-events: none; }
 
@@ -56,7 +56,7 @@ img { display: block; }
 .tabs { display: flex; justify-content: center; height: 64px; }
 .tabs button { position: relative; flex: 0 1 140px; font-size: 18px; color: #606060; }
 .tabs button[aria-selected="true"] { color: black; font-weight: 700; }
-.tabs button[aria-selected="true"]::after { content: ""; position: absolute; top: 43px; left: calc(50% - 31px); width: 62px; height: 4px; border-radius: 15px; background: var(--orange); }
+.tabs button[aria-selected="true"]::after { content: ""; position: absolute; top: 47px; left: calc(50% - 31px); width: 62px; height: 4px; border-radius: 15px; background: var(--orange); }
 .actions { margin: 4px 5px 0; display: flex; justify-content: space-between; gap: 6px; }
 .actions button { flex: 0 1 93px; }
 .tools { margin: 20px 2px 8px; display: flex; align-items: center; gap: 12px; }
