@@ -1,0 +1,105 @@
+.app-button {
+  --button-fill: var(--orange, #ff8d28);
+  --button-pressed: #e8750e;
+  --button-ink: white;
+  --button-padding: 8px;
+  --button-content-height: 18px;
+  --button-icon-size: 18px;
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-inline-size: calc(var(--button-content-height) + 2 * var(--button-padding));
+  min-block-size: calc(var(--button-content-height) + 2 * var(--button-padding));
+  padding: var(--button-padding) calc(2 * var(--button-padding));
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--button-fill);
+  color: var(--button-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: var(--button-content-height);
+  white-space: nowrap;
+}
+.app-button:active:not(:disabled),
+.app-button[data-state="pressed"]:not(:disabled) {
+  background: var(--button-pressed);
+  color: var(--button-pressed-ink, var(--button-ink));
+}
+.app-button--small {
+  --button-padding: 6px;
+  --button-content-height: 16px;
+  --button-icon-size: 16px;
+  font-size: 12px;
+}
+.app-button--large {
+  --button-padding: 14px;
+  --button-content-height: 22px;
+  --button-icon-size: 22px;
+  font-size: 17px;
+}
+.app-button--hero {
+  --button-padding: 12px;
+  --button-content-height: 22px;
+  gap: 6px;
+  font-size: 17px;
+  font-weight: 590;
+  letter-spacing: -.43px;
+}
+.app-button--strong {
+  --button-padding: 10px;
+  --button-content-height: 22px;
+  font-size: 16px;
+}
+.app-button--preview-action { --button-padding: 12px; }
+.app-button--secondary {
+  --button-fill: rgb(120 120 120 / 20%);
+  --button-pressed: rgb(120 120 120 / 32%);
+}
+.app-button--neutral {
+  --button-fill: #f2f2f7;
+  --button-pressed: #e5e5ea;
+  --button-ink: #000;
+  font-weight: 400;
+}
+.app-button--plain {
+  --button-fill: transparent;
+  --button-pressed: transparent;
+  --button-ink: var(--orange, #ff8d28);
+  --button-pressed-ink: #e8750e;
+}
+.app-button:disabled {
+  background: rgb(120 120 120 / 12%);
+  color: #8e8e93;
+  cursor: default;
+}
+.app-button--plain:disabled { background: transparent; }
+.app-button--block { width: 100%; }
+.app-button--structural {
+  --button-fill: transparent;
+  --button-pressed: transparent;
+  --button-padding: 0px;
+  --button-content-height: 0px;
+  display: block;
+  color: inherit;
+  font: inherit;
+  white-space: normal;
+}
+.app-button--structural:active:not(:disabled) { color: inherit; }
+.app-button--structural:disabled { background: transparent; }
+.app-icon {
+  display: inline-block;
+  flex: none;
+  inline-size: var(--button-icon-size, 18px);
+  block-size: var(--button-icon-size, 18px);
+  background: currentColor;
+  mask: var(--icon-source) center / contain no-repeat;
+}
+.app-icon--create { --icon-source: url("assets/figma-238.svg"); }
+.app-icon--upload { --icon-source: url("assets/32ffd.svg"); }
+.app-icon--manage { --icon-source: url("assets/f162b.svg"); }
+.app-icon--help { --icon-source: url("assets/figma-255.svg"); }
+.app-icon--back { --icon-source: url("assets/figma-258.svg"); }
