@@ -116,7 +116,7 @@ dialog.picker[open] { transform: translateY(0); transition-duration: 300ms; }
 .picker-header h2 { margin: 0; font-size: 16px; }
 .picker-header form { flex: none; }
 .picker-scroll { overflow: auto; flex: 1; padding: 12px 22px 112px; scrollbar-width: none; overscroll-behavior: contain; }
-.picker-actions { position: absolute; inset: auto 0 0; display: flex; align-items: center; gap: 8px; padding: 14px 22px min(66px, 8dvh); background: linear-gradient(transparent, #563400c9); pointer-events: none; }
+.picker-actions { position: absolute; z-index: 2; inset: auto 0 0; display: flex; align-items: center; gap: 8px; padding: 14px 22px min(66px, 8dvh); background: linear-gradient(transparent, #563400c9); pointer-events: none; }
 .picker-actions button { pointer-events: auto; }
 .picker-actions #picker-add { margin-inline-start: auto; }
 .picker .picker-tool { --button-fill: #727272; --button-pressed: #555; }
