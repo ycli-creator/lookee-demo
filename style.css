@@ -120,7 +120,6 @@ dialog.picker[open] { transform: translateY(0); transition-duration: 300ms; }
 .picker-actions button { pointer-events: auto; }
 .picker-actions #picker-add { margin-inline-start: auto; }
 .picker .picker-tool { --button-fill: #727272; --button-pressed: #555; }
-.picker .picker-actions .app-button:disabled { background: #e3e3e8; }
 .picker-tool img { width: auto; height: 24px; }
 .picker .art:not(.active)::after { content: ""; position: absolute; inset: 0; background: #ff8d286e; opacity: 0; transition: opacity 130ms ease-out; }
 .picker .tile[aria-pressed="true"] .art:not(.active)::after { opacity: 1; }
